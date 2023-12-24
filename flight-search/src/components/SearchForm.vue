@@ -65,8 +65,8 @@
           <v-checkbox v-model="oneWay" label="Tek Yönlü Uçuş"></v-checkbox>
         </v-col>
         <v-col>
-          <v-btn type="submit" color="primary">Ara</v-btn>
-        </v-col>
+      <v-btn type="submit" color="primary">Ara</v-btn>
+    </v-col>
       </v-row>
     </v-form>
   </div>
@@ -85,7 +85,7 @@ export default {
       oneWay: false,
       departureMenu: false,
       returnMenu: false,
-      airportList: ["IST", "JFK", "LHR", "CDG"], // Örnek havaalanları
+      airportList: ["IST", "JFK", "ANK", "IZM"],
     };
   },
   computed: {
@@ -113,20 +113,29 @@ export default {
   methods: {
     async searchFlights() {
       try {
-        const response = await Axios.get("http://localhost:8080/flights", {
-          params: {
-            departureAirport: this.departureAirport,
-            arrivalAirport: this.arrivalAirport,
-            departureDate: this.departureDate,
-            returnDate: this.returnDate,
-            oneWay: this.oneWay,
-          },
-        });
+        this.loading = true;
 
-        const flightsData = response.data;
-        this.$emit("search", flightsData.flights);
+        // Özellikleri bir objede topla
+        const searchParams = {
+          departureAirport: this.departureAirport,
+          arrivalAirport: this.arrivalAirport,
+          departureDate: this.departureDate,
+          returnDate: this.returnDate,
+          oneWay: this.oneWay,
+        };
+        console.log("Arama Parametreleri:", searchParams);
+
+        // Axios isteğini gönderirken bu objeyi kullan
+        const response = await Axios.get("http://localhost:8080/flights", {
+          params: searchParams,
+        });
+        console.log("API Cevabı:", response.data); 
+        // SearchForm bileşeni üzerinden ana bileşene (App.vue) veriyi emit et
+        this.$emit("search", { flights: response.data.flights });
       } catch (error) {
         console.error("API isteği başarısız:", error);
+      } finally {
+        this.loading = false;
       }
     },
   },

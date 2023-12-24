@@ -2,33 +2,43 @@
   "flights": [
     {
       "id": 1,
-      "airline": "Example Air",
+      "airline": "X Air",
       "departureAirport": "IST",
       "arrivalAirport": "JFK",
-      "departureTime": "2023-01-01T12:00:00Z",
-      "arrivalTime": "2023-01-01T15:00:00Z",
+      "departureTime": "24-12-2023 09:00",
+      "arrivalTime": "24-12-2023 12:00",
       "price": 200,
-      "duration": "3 hours"
+      "duration": "3 Saat"
     },
     {
       "id": 2,
-      "airline": "Sample Airlines",
+      "airline": "Y Airlines",
       "departureAirport": "JFK",
-      "arrivalAirport": "IST",
-      "departureTime": "2023-01-02T10:00:00Z",
-      "arrivalTime": "2023-01-02T13:00:00Z",
-      "price": 250,
-      "duration": "3 hours"
+      "arrivalAirport": "ANK",
+      "departureTime": "28-12-2023 10:00",
+      "arrivalTime": "28-12-2023 15:00",
+      "price": 450,
+      "duration": "5 Saat"
     },
     {
       "id": 3,
-      "airline": "X Airlines",
+      "airline": "Z Airlines",
       "departureAirport": "JFK",
       "arrivalAirport": "IST",
-      "departureTime": "2023-01-02T10:00:00Z",
-      "arrivalTime": "2023-01-02T13:00:00Z",
+      "departureTime": "24-12-2023 12:00",
+      "arrivalTime": "24-12-2023 14:00",
       "price": 300,
-      "duration": "2 hours"
+      "duration": "3 Saat"
+    },
+    {
+      "id": 4,
+      "airline": "Q Airlines",
+      "departureAirport": "ANK",
+      "arrivalAirport": "IZM",
+      "departureTime": "24-12-2023 13:00",
+      "arrivalTime": "24-12-2023 14:00",
+      "price": 600,
+      "duration": "1 Saat"
     }
   ]
 }
